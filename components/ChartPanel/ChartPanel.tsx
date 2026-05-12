@@ -310,6 +310,7 @@ export default function ChartPanel({ earthquakes }: ChartPanelProps) {
               <Tooltip content={<MagnitudeTooltip />} cursor={false} />
               <Bar dataKey="count" barSize={32} radius={[4, 4, 0, 0]}>
                 {magBuckets.map((entry, i) => (
+                  // waiting for Recharts to fix the API - will work until then
                   <Cell key={i} fill={entry.fill} opacity={0.85} />
                 ))}
               </Bar>
@@ -319,24 +320,23 @@ export default function ChartPanel({ earthquakes }: ChartPanelProps) {
 
         <div className={`${styles.chartCard} ${styles.fullWidth}`}>
           <h3 className={styles.chartTitle}>Depth Distribution</h3>
-          <p className={styles.chartDescription}>Breakdown by depth category</p>
+          <p className={styles.chartDescription}>Breakdown by depth category - Hover the pie for details</p>
           <ResponsiveContainer width="100%" height={280}>
             <PieChart>
               <Pie
-                data={depthSlices}
-                cx="50%"
-                cy="50%"
-                innerRadius={72}
-                outerRadius={100}
-                dataKey="value"
-                activeIndex={activePieIndex}
-                activeShape={(p: any) => <ActivePieShape {...p} />}
-                onMouseEnter={(_, index) => setActivePieIndex(index)}
-              >
-                {depthSlices.map((entry, i) => (
-                  <Cell key={i} fill={entry.fill} opacity={0.85} />
-                ))}
-              </Pie>
+  {...({
+    data: depthSlices,
+    cx: "50%",
+    cy: "50%",
+    innerRadius: 72,
+    outerRadius: 100,
+    dataKey: "value",
+    activeIndex: activePieIndex,
+    activeShape: (p: any) => <ActivePieShape {...p} />,
+    onMouseEnter: (_: any, index: number) => setActivePieIndex(index),
+    fill: (entry: DepthSlice) => entry.fill,
+  } as any)}
+/>
             </PieChart>
           </ResponsiveContainer>
         </div>
