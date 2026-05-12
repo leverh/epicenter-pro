@@ -15,6 +15,28 @@ export const metadata: Metadata = {
     'Seismic Data API'
   ],
   authors: [{ name: 'Made By Ever', url: 'https://madebyever.com' }],
+
+  icons: {
+    icon: [
+      {
+        url: '/web-app-manifest-192x192.png',
+        sizes: '192x192',
+        type: 'image/png',
+      },
+      {
+        url: '/web-app-manifest-512x512.png',
+        sizes: '512x512',
+        type: 'image/png',
+      },
+    ],
+    apple: [
+      {
+        url: '/web-app-manifest-192x192.png',
+        sizes: '192x192',
+        type: 'image/png',
+      },
+    ],
+  },
   
   openGraph: {
     title: 'EpicenterHub Case Study — Made By Ever',
@@ -22,7 +44,7 @@ export const metadata: Metadata = {
     url: 'https://madebyever.com/projects/epicenterhub',
     siteName: 'Made By Ever',
     images: [
-      {
+      { 
         url: '/images/epicenterhub-og.png',
         width: 1200,
         height: 630,
