@@ -1,0 +1,162 @@
+.header {
+  position: relative;
+  padding: var(--sp-12) var(--sp-8) var(--sp-10);
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-subtle);
+
+  /* Radial glow from top-center */
+  background:
+    radial-gradient(ellipse 70% 60% at 50% -10%, rgba(0,180,216,0.14) 0%, transparent 70%),
+    var(--bg-deep);
+}
+
+/* Seismic waveform SVG background */
+.waveBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+.wavePrimary {
+  stroke: var(--cyan-500);
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 4px var(--cyan-500));
+  animation: wave-drift 8s ease-in-out infinite alternate;
+}
+
+.waveSecondary {
+  stroke: var(--cyan-700);
+  stroke-width: 1;
+  animation: wave-drift 12s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes wave-drift {
+  from { opacity: 0.6; }
+  to   { opacity: 1; }
+}
+
+/* Corner scan lines */
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan-500), transparent);
+  opacity: 0.6;
+}
+
+/* Wordmark */
+.wordmark {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-4);
+  animation: fade-in 0.6s var(--ease-out) both;
+}
+
+.logoIcon {
+  color: var(--cyan-400);
+  filter: drop-shadow(0 0 8px var(--cyan-500));
+  flex-shrink: 0;
+}
+
+.titleText {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.titleEpicenter {
+  font-size: var(--text-4xl);
+  color: var(--text-primary);
+}
+
+.titleHub {
+  font-size: var(--text-4xl);
+  color: var(--cyan-400);
+  text-shadow: 0 0 20px var(--cyan-glow), 0 0 40px var(--cyan-glow-lg);
+}
+
+/* Subtitle */
+.subtitle {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--sp-8);
+  animation: fade-in 0.6s 0.1s var(--ease-out) both;
+}
+
+/* Status bar */
+.statusBar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-2) var(--sp-5);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-dim);
+  border-radius: var(--radius-2xl);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  animation: fade-in 0.6s 0.2s var(--ease-out) both;
+}
+
+.statusBar::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--cyan-glow), transparent 60%);
+  pointer-events: none;
+}
+
+/* Live pulse dot */
+.liveDot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+}
+
+.liveDotCore {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--emerald-400);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.liveDotRing {
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 1px solid var(--emerald-400);
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+.statusCount {
+  color: var(--cyan-400);
+  font-weight: 600;
+}
+
+.statusDivider {
+  color: var(--border-normal);
+}
+
+.statusTime {
+  color: var(--text-muted);
+}
