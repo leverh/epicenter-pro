@@ -35,7 +35,7 @@
   /* — Text */
   --text-primary:   #e2e8f0;
   --text-secondary: #94a3b8;
-  --text-muted:     #475569;
+  --text-muted:     #94a3b8;
   --text-accent:    var(--cyan-400);
 
   /* — Borders */
