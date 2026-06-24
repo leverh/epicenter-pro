@@ -1,31 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" rx="18" fill="#0f172a"/>
-  <path
-    fill="none"
-    stroke="#22d3ee"
-    stroke-width="4"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    d="
-      M 5 50
-      L 22 50
-      L 26 46
-      L 30 54
-      L 34 50
-      L 40 50
-      L 43 47
-      L 46 53
-      L 50 18
-      L 54 82
-      L 57 44
-      L 60 56
-      L 64 50
-      L 70 50
-      L 74 46
-      L 78 54
-      L 82 50
-      L 95 50
-    "
-  />
-  <circle cx="50" cy="18" r="2.5" fill="#22d3ee"/>
+  <rect width="100" height="100" rx="18" fill="#0f172a"></rect>
+  <path fill="none" stroke="#22d3ee" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" d="&#xA;      M 5 50&#xA;      L 22 50&#xA;      L 26 46&#xA;      L 30 54&#xA;      L 34 50&#xA;      L 40 50&#xA;      L 43 47&#xA;      L 46 53&#xA;      L 50 18&#xA;      L 54 82&#xA;      L 57 44&#xA;      L 60 56&#xA;      L 64 50&#xA;      L 70 50&#xA;      L 74 46&#xA;      L 78 54&#xA;      L 82 50&#xA;      L 95 50&#xA;    "></path>
+  <circle cx="50" cy="18" r="2.5" fill="#22d3ee"></circle>
 </svg>

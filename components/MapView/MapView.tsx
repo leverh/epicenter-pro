@@ -4,85 +4,47 @@ import dynamic from 'next/dynamic';
 import type { Earthquake } from '@/types/earthquake';
 import styles from './MapView.module.css';
 
-// Legend config
-
-interface LegendEntry {
-  color: string;
-  label: string;
-}
+interface LegendEntry { color: string; label: string; }
 
 const LEGEND: LegendEntry[] = [
-  { color: '#ef4444', label: '< 10 km' },
-  { color: '#f97316', label: '10 – 70 km' },
-  { color: '#eab308', label: '70 – 300 km' },
-  { color: '#22c55e', label: '> 300 km' },
+  { color: '#ef4444', label: '<10km' },
+  { color: '#fb923c', label: '<70km' },
+  { color: '#fbbf24', label: '<300km' },
+  { color: '#34d399', label: 'deep' },
 ];
-
-// Lazy-loaded map
 
 const MapClient = dynamic(() => import('./MapClient'), {
   ssr: false,
   loading: () => (
     <div className={styles.mapSkeleton}>
-      <div className={styles.skeletonPulse} aria-hidden="true" />
+      <svg className={styles.spinner} width="30" height="30" viewBox="0 0 24 24" fill="none"
+        stroke="var(--cyan-500)" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
+        <path d="M21 12a9 9 0 1 1-6.2-8.5" />
+      </svg>
       <span className={styles.skeletonLabel}>Loading map…</span>
     </div>
   ),
 });
 
-// Props
-
-interface MapViewProps {
-  earthquakes: Earthquake[];
-}
-
-// Component
+interface MapViewProps { earthquakes: Earthquake[]; }
 
 export default function MapView({ earthquakes }: MapViewProps) {
   return (
     <div className={styles.mapPanel}>
+      <MapClient earthquakes={earthquakes} />
 
-      <div className={styles.panelHeader}>
-        <h2 className={styles.panelTitle}>Seismic Map</h2>
-        <span className={styles.quakeCount}>
-          <span className={styles.quakeCountNum}>{earthquakes.length.toLocaleString()}</span>
-          {' '}events plotted
-        </span>
+      <div className={styles.overlayTop}>
+        <span className={styles.overlayLabel}>Epicenters</span>
+        <span className={styles.overlayCount}>{earthquakes.length.toLocaleString()}</span>
       </div>
 
-      <div className={styles.mapWrapper}>
-        <MapClient earthquakes={earthquakes} />
-      </div>
-
-      <div className={styles.legend} aria-label="Depth colour legend">
-        <span className={styles.legendTitle}>Depth</span>
-
-        {LEGEND.map(({ color, label }, i) => (
+      <div className={styles.overlayLegend} aria-label="Depth colour legend">
+        {LEGEND.map(({ color, label }) => (
           <span key={label} className={styles.legendItem}>
-            {i > 0 && <span className={styles.legendDivider} aria-hidden="true" />}
-            <span
-              className={styles.legendDot}
-              style={{ backgroundColor: color }}
-              aria-hidden="true"
-            />
+            <span className={styles.legendDot} style={{ backgroundColor: color }} aria-hidden="true" />
             <span className={styles.legendLabel}>{label}</span>
           </span>
         ))}
-
-        <span className={styles.legendNote} aria-label="Note">
-          Circle size ∝ magnitude
-        </span>
-
-        <span className={styles.legendDivider} aria-hidden="true" />
-
-        <span className={styles.clickHint} aria-label="Tip">
-          {/* cursor / pointer icon */}
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M4 0l16 12-7 1-4 8z"/>
-          </svg>
-          Click any marker for details
-        </span>
       </div>
     </div>
   );

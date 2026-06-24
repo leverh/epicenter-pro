@@ -1,0 +1,87 @@
+.feed {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, rgba(13,18,28,0.7), rgba(10,14,22,0.7));
+  border: 1px solid var(--border-dim);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  max-height: 564px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--sp-4) var(--sp-5) var(--sp-3);
+  border-bottom: 1px solid var(--border-dim);
+}
+.title { font-family: var(--font-display); font-weight: 600; font-size: var(--text-base); }
+.subtitle {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+
+.list { flex: 1; overflow-y: auto; padding: var(--sp-2); }
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  width: 100%;
+  padding: 11px 12px;
+  background: transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.row:hover { background: rgba(255,255,255,0.05); }
+
+.mag {
+  flex-shrink: 0;
+  width: 42px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  border: 1px solid;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-base);
+}
+
+.meta { flex: 1; min-width: 0; }
+.place {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.detail {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.ago {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.empty {
+  padding: var(--sp-8) var(--sp-4);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--text-faint);
+  letter-spacing: 0.1em;
+}
