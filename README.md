@@ -1,6 +1,6 @@
 # EpicenterHub
 
-> A fast, considered web experience built with precision. 
+> Live API. Global map.Five chart libraries.One coherent system.
 
 ![Project Preview](public/images/epicenterhub-og.png)
 
