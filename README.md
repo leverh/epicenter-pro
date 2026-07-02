@@ -17,7 +17,7 @@ EpicenterHub is a real-time seismic monitoring dashboard pulling live data from 
 * **Framework:** Next.js (App Router)
 * **Data fetching:** React Query + usgsApi.ts
 * **State:** Zustand — dashboardStore
-* * **Language:** TypeScript
+* **Language:** TypeScript
 
 ## Key Features
 
