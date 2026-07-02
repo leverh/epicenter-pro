@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# [Project Name]
 
-## Getting Started
+> A fast, considered web experience built with precision. 
 
-First, run the development server:
+![Project Preview](public/epicenterhub-og.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### [Live Production Preview](https://epicenterhub.madebyever.com/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Core Focus
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+EpicenterHub is a real-time seismic monitoring dashboard pulling live data from the USGS Earthquake API. Consolidating chart dependencies, typing the entire USGS GeoJSON surface, and layering in React Query, Zustand, and a portal-rendered detail drawer — without touching the live data pipeline.
 
-## Learn More
+## The Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+* **Framework:** Next.js (App Router)
+* **Data fetching:** React Query + usgsApi.ts
+* **State:** Zustand — dashboardStore
+* * **Language:** TypeScript
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Key Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* **types:** A single types/earthquake.ts file now defines the full USGS GeoJSON surface — every property, every nullable field, the coordinate tuple typed as[number, number, number] rather than number[].
+* **Charts:** All four were written in Recharts.
+* **Map:** Leaflet + react-leaflet split into MapView.tsx (SSR-safe wrapper) and MapClient.tsx (browser-only).
