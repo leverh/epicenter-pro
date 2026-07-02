@@ -1,6 +1,6 @@
 # EpicenterHub
 
-> Live API. Global map.Five chart libraries.One coherent system.
+> Live API. Global map. Five chart libraries. One coherent system.
 
 ![Project Preview](public/images/epicenterhub-og.png)
 
