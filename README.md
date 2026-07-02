@@ -1,4 +1,4 @@
-# [Project Name]
+# EpicenterHub
 
 > A fast, considered web experience built with precision. 
 
