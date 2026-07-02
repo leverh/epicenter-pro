@@ -2,7 +2,7 @@
 
 > A fast, considered web experience built with precision. 
 
-![Project Preview](public/epicenterhub-og.png)
+![Project Preview](public/images/epicenterhub-og.png)
 
 ### [Live Production Preview](https://epicenterhub.madebyever.com/)
 
